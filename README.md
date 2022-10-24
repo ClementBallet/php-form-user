@@ -15,5 +15,8 @@ Consignes :
 - "Vous devez remplir tous les champs"
 - "Votre mot de passe doit comporter 8 caractères et au moins une majuscule"
 <br>N.B.: Bien sûr, les messages d'erreurs doivent s'afficher en fonction de si les conditions sont remplies ou pas. On n'affiche pas toutes les erreurs par défaut.
+9. Dans le fichier contenant le formulaire d'inscription de notre site, créer un deuxième formulaire que l'on va appeler "Connexion". Il comportera les mêmes champs que précédemment, à savoir pseudo et password avec un submit
+10. Dans le projet, créer un fichier `login.php` où l'on va traiter les réponses du formulaire de connexion utilisateur
+11. Faire une/des condition(s) pour comparer si l'utilisateur rentre bien un pseudo et password enregistré en BDD. Il faut également que le pseudo et le password soit correct pour le même utilisateur.
 
 ...to be continued
