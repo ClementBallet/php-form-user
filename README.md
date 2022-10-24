@@ -18,5 +18,18 @@ Consignes :
 9. Dans le fichier contenant le formulaire d'inscription de notre site, créer un deuxième formulaire que l'on va appeler "Connexion". Il comportera les mêmes champs que précédemment, à savoir pseudo et password avec un submit
 10. Dans le projet, créer un fichier `login.php` où l'on va traiter les réponses du formulaire de connexion utilisateur
 11. Faire une/des condition(s) pour comparer si l'utilisateur rentre bien un pseudo et password enregistré en BDD. Il faut également que le pseudo et le password soit correct pour le même utilisateur.
+12. Aller dans PHPMyAdmin, sélectionner la base de donnée `account` et insérer le code SQL suivant : 
+```
+ALTER TABLE user
+ADD UNIQUE (pseudo);
+``` 
+13. Après avoir fait cette commande, nous avons rendu unique la colonne pseudo, c'est-à-dire qu'aucun pseudo ne peut être pareil dorénavant. Il est possible maintenant que vous ayez une belle erreur PHP quand vous essayez de rentrer un nouvel utilisateur avec le même pseudo qu'un autre. Gérer cette erreur pour qu'aucun utilisateurs n'aient le même pseudo et si c'est le cas, afficher un message d'erreur "Pseudo déjà existant." dans le formulaire.
+<details>
+<summary>Un indice ?</summary>
+Un morceau de code pourrait être intéressant ici :
+<a href="https://phpdelusions.net/pdo#catch">https://phpdelusions.net/pdo#catch</a> (quelques modifications à appliquer cependant)
+</details>
+
+14. Au moment de l'inscription, le mot de passe n'est pas assez sécurisé. Ajouter la regex suivante dans votre code pour que le mot de passe contienne au moins 8 symboles, une minuscule, une majuscule et un chiffre : <code>$regex = '/(?=.*[0-9])(?=.*[a-z])(?=.*[A-Z])[0-9a-zA-Z !"#$%&\'()*+,-.\/:;<=>?@\[\\\\\]^_`{|}~]{8,255}/';</code>
 
 ...to be continued
