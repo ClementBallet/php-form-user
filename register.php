@@ -1,4 +1,5 @@
 <?php
+session_start();
 
 $host = "localhost";
 $user = "root";
@@ -31,6 +32,8 @@ if ( !empty($pseudo) && !empty($password) )
             $passwordEncrypt = password_hash($password, PASSWORD_DEFAULT);
             $insertUser = $connexion->prepare("INSERT INTO user(pseudo,password) VALUES(?,?)");
             $insertUser->execute( array($pseudo, $passwordEncrypt) );
+            $_SESSION["username"] = $pseudo;
+            header('Location: /dashboard.php');
         }
         catch ( PDOException $e )
         {

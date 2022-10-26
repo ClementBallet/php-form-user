@@ -1,4 +1,5 @@
 <?php
+session_start();
 
 $host = "localhost";
 $user = "root";
@@ -33,6 +34,7 @@ if ( !empty($pseudo) && !empty($password) )
 
             if ( $user->password == password_verify($password, $user->password) )
             {
+                $_SESSION["username"] = $pseudo;
                 header('Location: /dashboard.php');
             }
             else
