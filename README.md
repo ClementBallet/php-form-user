@@ -46,6 +46,8 @@ Un morceau de code pourrait être intéressant ici :
 16. Le password n'est pour l'instant pas encrypté quand on le sauvegarde en BDD. Dans `register.php` encrypter le mot de passe à l'aide de la fonction `password_hash()` juste avant de l'envoyer dans la BDD.
 17. Dans `login.php`, il faut maintenant vérifier si le password rentré par l'utilisateur au moment de la connexion correspond bien au password encrypté en BDD. Pour cela, utiliser `password_verify()`
 18. Dans `login.php` et `register.php`, quand tout s'est bien passé et que toutes les conditions sont réunies, renvoyer l'utilisateur sur la page `dashboard.php`
-19. Créer la page `dashboard.php` sur laquelle on va insérer un titre `<h1>` avec le texte suivant : Dashboard utilisateur - Bonjour Toto. Sachant que Toto devra être récupéré de la session utilisateur. Il faudra donc démarrer une session au moment de l'inscription et aussi au moment de la connexion.
+19. Créer la page `dashboard.php` sur laquelle on va insérer un titre `<h1>` avec le texte suivant : Dashboard utilisateur - Bonjour Toto. Sachant que Toto devra être récupéré de la session utilisateur. Il faudra donc démarrer une session au moment de l'inscription et aussi au moment de la connexion. <br>Aide : https://youtu.be/jEgzxXCB9-w
 20. Toujours sur le dashboard utilisateur, rajouter un lien de déconnexion qui envoie sur `logout.php`. Ce fichier va gérer la fin de la session utilisateur et redirigera sur `index.php`.
+
+<br>
 ...to be continued
