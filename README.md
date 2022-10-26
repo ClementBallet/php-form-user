@@ -38,7 +38,7 @@ Un morceau de code pourrait être intéressant ici :
 <a href="https://phpdelusions.net/pdo#catch">https://phpdelusions.net/pdo#catch</a> (quelques modifications à appliquer cependant)
 </details>
 
-14. Au moment de l'inscription, le mot de passe n'est pas assez sécurisé. Ajouter la regex suivante dans votre code pour que le mot de passe contienne au moins 8 symboles, une minuscule, une majuscule et un chiffre : <code>$regex = '/(?=.*[0-9])(?=.*[a-z])(?=.*[A-Z])[0-9a-zA-Z !"#$%&\'()*+,-.\/:;<=>?@\[\\\\\]^_`{|}~]{8,255}/';</code>
+14. Au moment de l'inscription, le mot de passe n'est pas assez sécurisé. Ajouter la regex suivante dans votre code pour que le mot de passe contienne au moins 8 symboles, une minuscule, une majuscule et un chiffre : <code>$regex = '/(?=.*[0-9])(?=.*[a-z])(?=.*[A-Z])[0-9a-zA-Z !"#$%&\'()*+,-.\/:;<=>?@\[\\\\\\\\\\]^_`{|}~]{8,255}/';</code>
 15. Il n'est pas sécurisé de passer des variables directement dans les requêtes SQL comme ceci `$sql = "SELECT * FROM users WHERE email = '$email' AND status='$status'";`. Si ce n'est pas déjà fait, refactorer le code pour modifier toutes les requêtes qui utilisent ce procédé. En reprenant la requête précédente, 2 solutions s'offrent à vous :
 - `$sql = 'SELECT * FROM users WHERE email = ? AND status = ?';`
 - `$sql = 'SELECT * FROM users WHERE email = :email AND status = :status';`
@@ -46,5 +46,6 @@ Un morceau de code pourrait être intéressant ici :
 16. Le password n'est pour l'instant pas encrypté quand on le sauvegarde en BDD. Dans `register.php` encrypter le mot de passe à l'aide de la fonction `password_hash()` juste avant de l'envoyer dans la BDD.
 17. Dans `login.php`, il faut maintenant vérifier si le password rentré par l'utilisateur au moment de la connexion correspond bien au password encrypté en BDD. Pour cela, utiliser `password_verify()`
 18. Dans `login.php` et `register.php`, quand tout s'est bien passé et que toutes les conditions sont réunies, renvoyer l'utilisateur sur la page `dashboard.php`
-
+19. Créer la page `dashboard.php` sur laquelle on va insérer un titre `<h1>` avec le texte suivant : Dashboard utilisateur - Bonjour Toto. Sachant que Toto devra être récupéré de la session utilisateur. Il faudra donc démarrer une session au moment de l'inscription et aussi au moment de la connexion.
+20. Toujours sur le dashboard utilisateur, rajouter un lien de déconnexion qui envoie sur `logout.php`. Ce fichier va gérer la fin de la session utilisateur et redirigera sur `index.php`.
 ...to be continued
