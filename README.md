@@ -38,7 +38,7 @@ Un morceau de code pourrait être intéressant ici :
 <a href="https://phpdelusions.net/pdo#catch">https://phpdelusions.net/pdo#catch</a> (quelques modifications à appliquer cependant)
 </details>
 
-14. Au moment de l'inscription, le mot de passe n'est pas assez sécurisé. Ajouter la regex suivante dans votre code pour que le mot de passe contienne au moins 8 symboles, une minuscule, une majuscule et un chiffre : <code>$regex = '/(?=.*[0-9])(?=.*[a-z])(?=.*[A-Z])[0-9a-zA-Z !"#$%&\'()*+,-.\/:;<=>?@\[\\\\\\\\\\]^_`{|}~]{8,255}/';</code>
+14. Au moment de l'inscription, le mot de passe n'est pas assez sécurisé. Ajouter la regex suivante dans votre code pour que le mot de passe contienne au moins 8 symboles, une minuscule, une majuscule et un chiffre : <code>$regex = '/(?=.*[0-9])(?=.*[a-z])(?=.*[A-Z])[0-9a-zA-Z !"#$%&\'()*+,-.\/:;<=>?@\[\\\\\\\]^_`{|}~]{8,255}/';</code>. Vous pouvez retrouver la regex ici : https://regex101.com/library/BoUYlc
 15. Il n'est pas sécurisé de passer des variables directement dans les requêtes SQL comme ceci `$sql = "SELECT * FROM users WHERE email = '$email' AND status='$status'";`. Si ce n'est pas déjà fait, refactorer le code pour modifier toutes les requêtes qui utilisent ce procédé. En reprenant la requête précédente, 2 solutions s'offrent à vous :
 - `$sql = 'SELECT * FROM users WHERE email = ? AND status = ?';`
 - `$sql = 'SELECT * FROM users WHERE email = :email AND status = :status';`
