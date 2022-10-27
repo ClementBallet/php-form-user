@@ -59,6 +59,7 @@ SET `role` = 'subscriber'
 WHERE `user`.`role` = '';
 ``` 
 Nous venons de rajouter un role à nos utilisateurs. Dans cette application, nous en aurons 2 : administrateur (admin) et abonné (subscriber)
+
 22. Via le formulaire d'inscription de l'application, créer un nouvel utilisateur qui aura pour pseudo `admin`
 23. Dans PHPMyAdmin et à l'aide d'une requète SQL, modifier l'utilisateur `admin` pour lui mettre le role `admin`
 24. De retour dans l'application, quand un utilisateur rentre dans la page `dashboard.php`, si il est administrateur du site, il devrait y voir : un tableau avec tous les utilisateurs ayant pour rôle `subscriber`. On devra afficher dans le tableau les colonnes suivantes : Pseudo, Rôle, Créé le, Modifié le, Actions. Ajouter dans le tableau les données correspondantes à chaque utilisateurs (pseudo, role, created_at, modified_at)
