@@ -35,6 +35,7 @@ if ( !empty($pseudo) && !empty($password) )
             if ( password_verify($password, $user->password) )
             {
                 $_SESSION["username"] = $pseudo;
+                $_SESSION["role"] = $user->role;
                 header('Location: /dashboard.php');
             }
             else
