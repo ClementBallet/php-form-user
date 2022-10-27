@@ -54,9 +54,9 @@ ALTER TABLE `user`
 ADD `role` VARCHAR(255) NULL
 AFTER `password`;
 
-UPDATE `user`
-SET `role` = 'subscriber'
-WHERE `user`.`role` = '';
+UPDATE `user` 
+SET `role` = 'subscriber' 
+WHERE `user`.`role` IS NULL OR `user`.`role` = '';
 ``` 
 Nous venons de rajouter un role à nos utilisateurs. Dans cette application, nous en aurons 2 : administrateur (admin) et abonné (subscriber)
 
