@@ -11,8 +11,6 @@ else
 {
     $username = $_SESSION["username"];
 }
-
-var_dump($_SESSION);
 ?>
 <!doctype html>
 <html lang="fr">

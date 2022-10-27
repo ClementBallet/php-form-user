@@ -32,7 +32,7 @@ if ( !empty($pseudo) && !empty($password) )
             // PDO::FETCH_OBJ renvoie la réponse sous forme d'une classe
             $user = $checkPseudo->fetch(PDO::FETCH_OBJ);
 
-            if ( $user->password == password_verify($password, $user->password) )
+            if ( password_verify($password, $user->password) )
             {
                 $_SESSION["username"] = $pseudo;
                 header('Location: /dashboard.php');
