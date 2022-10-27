@@ -48,6 +48,22 @@ Un morceau de code pourrait être intéressant ici :
 18. Dans `login.php` et `register.php`, quand tout s'est bien passé et que toutes les conditions sont réunies, renvoyer l'utilisateur sur la page `dashboard.php`
 19. Créer la page `dashboard.php` sur laquelle on va insérer un titre `<h1>` avec le texte suivant : Dashboard utilisateur - Bonjour Toto. Sachant que Toto devra être récupéré de la session utilisateur. Il faudra donc démarrer une session au moment de l'inscription et aussi au moment de la connexion. <br>Aide : https://youtu.be/jEgzxXCB9-w
 20. Toujours sur le dashboard utilisateur, rajouter un lien de déconnexion qui envoie sur `logout.php`. Ce fichier va gérer la fin de la session utilisateur et redirigera sur `index.php`.
+21. Dans PHPMyAdmin, lancer les commandes SQL suivantes :
+```
+ALTER TABLE `user`
+ADD `role` VARCHAR(255) NULL
+AFTER `password`;
+
+UPDATE `user`
+SET `role` = 'subscriber'
+WHERE `user`.`role` = '';
+``` 
+Nous venons de rajouter un role à nos utilisateurs. Dans cette application, nous en aurons 2 : administrateur (admin) et abonné (subscriber)
+22. Via le formulaire d'inscription de l'application, créer un nouvel utilisateur qui aura pour pseudo `admin`
+23. Dans PHPMyAdmin et à l'aide d'une requète SQL, modifier l'utilisateur `admin` pour lui mettre le role `admin`
+24. De retour dans l'application, quand un utilisateur rentre dans la page `dashboard.php`, si il est administrateur du site, il devrait y voir : un tableau avec tous les utilisateurs ayant pour rôle `subscriber`. On devra afficher dans le tableau les colonnes suivantes : Pseudo, Rôle, Créé le, Modifié le, Actions. Ajouter dans le tableau les données correspondantes à chaque utilisateurs (pseudo, role, created_at, modified_at)
+25. Dans la colonne Actions du tableau, ajouter un bouton `Supprimer l'utilisateur`. Il devra... supprimer l'utilisateur (!) correspondant en PHP avec une requète SQL. Pour cela on pourra créer un nouveau fichier php `DeleteUser.php`. 
+26. Au clic de ce bouton, une popup apparaitra pour demander `Etes-vous sûr de vouloir supprimer l'utilisateur {insérer pseudo du user} ?`. Autorisation de faire du JavaScript pour ce point.
 
 <br>
 ...to be continued
