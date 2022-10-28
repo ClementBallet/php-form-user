@@ -21,6 +21,7 @@ else
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Dashboard</title>
     <link rel="stylesheet" href="style.css">
+    <script src="script.js" async></script>
 </head>
 <body>
     <h1>Dashboard - Bonjour <?php echo $username ?></h1>
@@ -86,7 +87,14 @@ else
                     <td><?php echo $user->created_at ?></td>
                     <td><?php echo $user->modified_at ?></td>
                     <td>
-                        <a href="/delete-user.php?pseudo=<?php echo $user->pseudo ?>" class="delete-user-button">Supprimer l'utilisateur</a>
+                        <button
+                           class="delete-user-button"
+                           id="delete-user-button"
+                           data-username="<?php echo $user->pseudo ?>"
+                           data-delete-user-url="/delete-user.php?pseudo=<?php echo $user->pseudo ?>"
+                        >
+                            Supprimer l'utilisateur
+                        </button>
                     </td>
                 </tr>
                 <?php

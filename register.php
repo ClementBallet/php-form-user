@@ -30,9 +30,14 @@ if ( !empty($pseudo) && !empty($password) )
         try
         {
             $passwordEncrypt = password_hash($password, PASSWORD_DEFAULT);
-            $insertUser = $connexion->prepare("INSERT INTO user(pseudo,password) VALUES(?,?)");
-            $insertUser->execute( array($pseudo, $passwordEncrypt) );
+            $insertUser = $connexion->prepare("INSERT INTO user(pseudo, password, role) VALUES(:pseudo, :password, :role)");
+            $insertUser->execute([
+                "pseudo" => $pseudo,
+                "password" => $passwordEncrypt,
+                "role" => "subscriber"
+            ]);
             $_SESSION["username"] = $pseudo;
+            $_SESSION["role"] = "subscriber";
             header('Location: /dashboard.php');
         }
         catch ( PDOException $e )
