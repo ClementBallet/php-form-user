@@ -18,8 +18,8 @@ catch ( PDOException $e )
 
 try
 {
-    $getUsers = $connexion->prepare("DELETE FROM user WHERE pseudo = :pseudo");
-    $getUsers->execute( ["pseudo" => $_GET["pseudo"]] );
+    $deleteUser = $connexion->prepare("DELETE FROM user WHERE pseudo = :pseudo");
+    $deleteUser->execute( ["pseudo" => $_GET["pseudo"]] );
     header("Location: /dashboard.php?isDeleteComplete=success&pseudo=" . $_GET["pseudo"]);
 }
 catch (PDOException $e)

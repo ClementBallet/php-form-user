@@ -80,6 +80,7 @@ else
             <tbody>
                 <?php
                 foreach ($users as $user) :
+
                 ?>
                 <tr>
                     <td><?php echo $user->pseudo ?></td>
@@ -90,7 +91,7 @@ else
                         <button
                            class="delete-user-button"
                            id="delete-user-button"
-                           data-username="<?php echo $user->pseudo ?>"
+                           data-username="<?= $user->pseudo ?>"
                            data-delete-user-url="/delete-user.php?pseudo=<?php echo $user->pseudo ?>"
                         >
                             Supprimer l'utilisateur
